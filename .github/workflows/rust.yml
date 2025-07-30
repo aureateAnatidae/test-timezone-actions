@@ -11,7 +11,7 @@ env:
 
 jobs:
   build:
-    environment: test env
+    environment: TESTENV
     runs-on: ubuntu-latest
 
     steps:
@@ -19,4 +19,6 @@ jobs:
     - name: Build
       run: cargo build --verbose
     - name: Run program
+      env:
+        TZ: ${{ vars.TZ }}
       run: cargo run
